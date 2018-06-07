@@ -8,13 +8,21 @@ public class Member extends Person{
 	
 	private String memberID;
 	
+	private CheckoutRecord checkoutRecord;
+	
 	public Member(String memberID, String firstName, String lastName, String phoneNumber, Address address) {
 		super(firstName, lastName, phoneNumber, address);
 		
 		this.memberID = memberID;
+		
+		checkoutRecord = new CheckoutRecord();
 	}
 	
 	public String getMemberID() {
 		return memberID;
+	}
+	
+	public void createCheckoutEntry(String bookID, int maxCheckoutLength) {
+		checkoutRecord.createCheckoutEntry(bookID, maxCheckoutLength);
 	}
 }

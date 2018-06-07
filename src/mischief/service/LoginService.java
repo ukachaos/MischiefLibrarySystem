@@ -1,7 +1,9 @@
 package mischief.service;
 
+import mischief.domain.Staff;
+
 public interface LoginService {
 
-	void getAuthorization(String id, String pass);
+	Staff getAuthorization(String id, String pass);
 
 }
