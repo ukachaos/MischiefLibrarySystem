@@ -30,6 +30,8 @@ public class Book {
 			String id = ISBN + "-00" + i;
 			BookCopy copy = new BookCopy(id);
 			
+			System.out.println("----" + title + " with id:" + id + " createad");
+			
 			bookCopy.add(copy);
 		}
 		

@@ -24,5 +24,7 @@ public class CheckoutEntry {
 		checkoutDate = LocalDate.now();
 		
 		dueDate = checkoutDate.plus(maxCheckoutLength, ChronoUnit.DAYS);
+		
+		System.out.println("Checkout entry record(" + bookID + " - " + checkoutDate + " - " + dueDate + ") created");
 	}
 }
