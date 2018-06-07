@@ -4,6 +4,6 @@ package mischief.service;
  * @author uka
  *
  */
-public class DataAccessService {
+public interface DataAccessService {
 
 }
