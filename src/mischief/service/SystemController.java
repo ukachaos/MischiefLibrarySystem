@@ -28,30 +28,30 @@ public class SystemController {
 		return null;
 	}
 
-	public void addBookCopy(String isbn, String copyNumber) {
+	public void addBookCopy(String isbn, String copyNumber) throws Exception{
 		if (isAdmin()) {
 			BookService bookService = ServiceFactory.getBookService();
 			Book book = bookService.getBookByISBN(isbn);
 			if (book != null) {
 				bookService.addBookCopy(book, copyNumber);
 			} else {
-				System.out.println("BOOK NOT FOUND!");
+				throw new MischiefException("Book not found!!!");
 			}
 
 		} else {
-			System.out.println("NO PERMISSION!");
+			throw new MischiefException("No Permission!!!");
 		}
 	}
 
 	public void addMember(String memberID, String firstName, String lastName, String phoneNumber, String street,
-			String city, String state, String zip) {
+			String city, String state, String zip) throws Exception{
 
 		if (isAdmin()) {
 			MemberService memberService = ServiceFactory.getMemberService();
 			memberService.addMember(memberID, firstName, lastName, phoneNumber, street, city, state, zip);
 
 		} else {
-			System.out.println("NO PERMISSION!");
+			throw new MischiefException("No Permission!!!");
 		}
 
 	}
@@ -72,6 +72,8 @@ public class SystemController {
 
 		LoginService service = ServiceFactory.getLoginService();
 		Staff staff = service.getAuthorization(id, pass);
+		
+		this.staff = staff;
 
 		return staff;
 

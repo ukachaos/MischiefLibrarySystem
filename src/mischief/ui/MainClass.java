@@ -25,7 +25,13 @@ public class MainClass {
 		System.out.println("***AUTHORIZATION LEVEL***" + staff.getRole().getValue());
 
 		// 2. add new library member
-		systemController.addMember("1", "John", "Joy", "999", "2000 north court street", "Fairfield", "IOWA", "52556");
+		try {
+			systemController.addMember("1", "John", "Joy", "999", "2000 north court street", "Fairfield", "IOWA", "52556");
+		}
+		catch (Exception e) {
+			// TODO: handle exception
+			System.out.println(e.toString());
+		}
 
 		// 3. uka
 		try {
@@ -52,7 +58,11 @@ public class MainClass {
 			System.out.println(e.toString());
 		}
 		// 4. add copy of existing book
-		//systemController.addBookCopy("000-001", "1");
-		
+		try {
+			systemController.addBookCopy("000-001", "1");
+		}
+		catch(Exception e) {
+			System.out.println(e.toString());
+		}
 	}
 }
