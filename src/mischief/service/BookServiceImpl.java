@@ -30,5 +30,18 @@ public class BookServiceImpl implements BookService {
 		BookCopy copy = new BookCopy(copyNumber);
 		service.saveBookCopy(book, copy);
 	}
+	
+	@Override
+	public Book getBookByID(String id) throws Exception{
+		List<Book> bookList = service.getBookList();
+
+		for (Book book : bookList) {
+			if (id.contains(book.getISBN())) {
+				return book;
+			}
+		}
+		
+		throw new MischiefException("Book with " + id + " id not found!");
+	}
 
 }

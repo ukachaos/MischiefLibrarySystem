@@ -99,4 +99,32 @@ public class Book {
 	public void setCheckoutRecord(CheckoutRecord checkoutRecord) {
 		this.checkoutRecord = checkoutRecord;
 	}
+	
+	public boolean checkoutBook(String bookID) {
+		if(availableCopy > 0)
+		{
+			for(BookCopy bc : bookCopies) {
+				if(bc.getCopyNumber().equals(bookID)) {
+					if(bc.available) {
+						bc.setAvailable(false);
+						availableCopy --;
+						return true;
+					}
+					else return false;
+				}
+			}
+			
+			return false;
+		}
+		else return false;
+	}
+	
+	public void checkinBook(String bookID) {
+		availableCopy ++;
+		for(BookCopy bc : bookCopies) {
+			if(bc.getCopyNumber().equals(bookID)){
+				bc.setAvailable(true);
+			}
+		}
+	}
 }

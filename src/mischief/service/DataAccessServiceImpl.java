@@ -36,9 +36,13 @@ public class DataAccessServiceImpl implements DataAccessService {
 		Book b5 = new Book("Core Java", "000-005", 1);
 
 		bookList.add(b1);
+		b1.checkoutBook("000-001-000");
 		bookList.add(b2);
+		b2.checkoutBook("000-002-000");
 		bookList.add(b3);
+		b3.checkoutBook("000-003-000");
 		bookList.add(b4);
+		b4.checkoutBook("000-004-000");
 		bookList.add(b5);
 	}
 

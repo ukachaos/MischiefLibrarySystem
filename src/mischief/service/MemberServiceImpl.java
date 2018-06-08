@@ -1,5 +1,7 @@
 package mischief.service;
 
+import java.util.List;
+
 import mischief.domain.Address;
 import mischief.domain.Member;
 
@@ -17,6 +19,20 @@ public class MemberServiceImpl implements MemberService {
 		dataAccessService.saveNewMember(member);
 		
 
+	}
+	
+	@Override
+	public Member getMemberByID(String memberID){
+		DataAccessService dataAccessService = ServiceFactory.getDataAccessService();
+		List<Member> memberList = dataAccessService.getMemberList();
+		
+		for(Member member : memberList) {
+			if(member.getMemberID().equals(memberID)) {
+				return member;
+			}
+		}
+		
+		return null;
 	}
 
 }
