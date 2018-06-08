@@ -1,6 +1,7 @@
 package mischief.ui;
 
-import mischief.domain.Member;
+import mischief.domain.CheckoutEntry;
+import mischief.domain.Staff;
 import mischief.service.SystemController;
 
 /**
@@ -13,15 +14,45 @@ public class MainClass {
 	
 	public static void main(String[] args) {
 		systemController = new SystemController();
-		Member member = systemController.getMemberByID("002");
-		System.out.println(member.firstName);
-		//Login
 		
-		//Add library member
+		System.out.println("***LOGIN FORM STARTED***");
+		Staff staff = systemController.login("admin", "4321");
+
+		if (staff == null) {
+			System.out.println("***INVALID CREDENTIALS***");
+			return;
+		}
+		System.out.println("***AUTHORIZATION LEVEL***" + staff.getRole().getValue());
+
+		// 2. add new library member
+		systemController.addMember("1", "John", "Joy", "999", "2000 north court street", "Fairfield", "IOWA", "52556");
+
+		// 3. uka
+		try {
+			CheckoutEntry entry = systemController.checkoutBook("001", "000-001-000");
+			
+			if(entry != null) {
+				System.out.println("Checkout successfull");
+			}
+			else System.out.println("Checkout not successfull");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			System.out.println(e.toString());
+		}
 		
-		//Checkout book
-		
-		//Add existing copy of book
+		try {
+			CheckoutEntry entry = systemController.checkoutBook("001", "000-001-002");
+			
+			if(entry != null) {
+				System.out.println("Checkout successfull");
+			}
+			else System.out.println("Checkout not successfull");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			System.out.println(e.toString());
+		}
+		// 4. add copy of existing book
+		//systemController.addBookCopy("000-001", "1");
 		
 	}
 }

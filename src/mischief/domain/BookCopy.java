@@ -5,17 +5,25 @@ package mischief.domain;
  *
  */
 public class BookCopy {
-	String id;
+	String copyNumber;
 	boolean available = true;
-	
-	public BookCopy(String id) {
-		this.id = id;
+
+	public BookCopy(String copyNumber) {
+		this.copyNumber = copyNumber;
 	}
-	
+
 	public void setAvailable(boolean available) {
 		this.available = available;
 	}
-	
+
+	public String getCopyNumber() {
+		return copyNumber;
+	}
+
+	public void setCopyNumber(String copyNumber) {
+		this.copyNumber = copyNumber;
+	}
+
 	public boolean isAvailable() {
 		return available;
 	}
