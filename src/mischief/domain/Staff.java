@@ -4,6 +4,7 @@ package mischief.domain;
  * @author uka
  *
  */
+
 public class Staff extends Person {
 
 	private String id;

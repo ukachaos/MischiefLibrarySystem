@@ -5,6 +5,7 @@ package mischief.domain;
  *
  */
 public enum Role {
+
 	LIBRARIAN("LIBRARION"), ADMIN("ADMIN"), BOTH("BOTH");
 
 	private final String role;
@@ -16,5 +17,4 @@ public enum Role {
 	public String getValue() {
 		return this.role;
 	}
-
 }

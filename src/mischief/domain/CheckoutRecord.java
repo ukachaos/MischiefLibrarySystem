@@ -14,8 +14,10 @@ public class CheckoutRecord {
 		checkoutEntryList = new ArrayList<>();
 	}
 	
-	public void createCheckoutEntry(String bookID, int maxCheckoutLength) {
+	public CheckoutEntry createCheckoutEntry(String bookID, int maxCheckoutLength) {
 		CheckoutEntry entry = new CheckoutEntry(bookID, maxCheckoutLength);
 		checkoutEntryList.add(entry);
+		
+		return entry;
 	}
 }

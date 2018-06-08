@@ -22,7 +22,7 @@ public class Member extends Person{
 		return memberID;
 	}
 	
-	public void createCheckoutEntry(String bookID, int maxCheckoutLength) {
-		checkoutRecord.createCheckoutEntry(bookID, maxCheckoutLength);
+	public CheckoutEntry createCheckoutEntry(String bookID, int maxCheckoutLength) {
+		return checkoutRecord.createCheckoutEntry(bookID, maxCheckoutLength);
 	}
 }

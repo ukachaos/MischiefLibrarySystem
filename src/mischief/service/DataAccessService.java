@@ -5,12 +5,14 @@ import java.util.List;
 import mischief.domain.Book;
 import mischief.domain.BookCopy;
 import mischief.domain.Member;
+
 import mischief.domain.Staff;
 
 /**
  * @author uka
  *
  */
+
 public interface DataAccessService {
 
 	void initBooks();
